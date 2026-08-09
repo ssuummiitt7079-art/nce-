@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nalanda College of Engineering, Chandi - Local Information Portal">
+<title>Nalanda College of Engineering, Chandi | Information Portal</title>
+<style>
+:root{--bg:#f5f5f5;--card:#fff;--text:#111;--muted:#666;--line:#ddd;--dark:#050505}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit}
+header{background:#050505;color:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid #333}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.logo{font-weight:800;letter-spacing:.5px}.logo span{display:block;font-size:12px;color:#bbb;font-weight:400}
+nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}
+nav a{text-decoration:none;color:#fff;font-size:14px}
+nav a:hover{text-decoration:underline}
+.hero{background:#111;color:#fff;padding:75px 20px;text-align:center}
+.hero h1{font-size:clamp(32px,6vw,62px);margin:0 0 12px}
+.hero p{max-width:800px;margin:0 auto 24px;color:#ddd}
+.buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 18px;border:1px solid #fff;text-decoration:none;font-weight:700;border-radius:4px}
+.btn.light{background:#fff;color:#000}
+.btn.dark{background:#111;color:#fff;border-color:#444}
+.location{max-width:1200px;margin:-30px auto 35px;padding:0 20px;position:relative}
+.location-card{background:#fff;border:1px solid var(--line);padding:20px;display:flex;justify-content:space-between;gap:20px;align-items:center;box-shadow:0 8px 30px #0001}
+section{max-width:1200px;margin:0 auto;padding:55px 20px}
+.section-title{border-left:5px solid #111;padding-left:14px;margin-bottom:25px}
+.section-title h2{margin:0;font-size:30px}.section-title p{color:var(--muted);margin:5px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);padding:22px;border-radius:6px}
+.card h3{margin-top:0}.num{font-size:32px;font-weight:800}
+.muted{color:var(--muted)}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line)}
+th,td{padding:13px;border-bottom:1px solid var(--line);text-align:left}
+th{background:#111;color:#fff}
+tr:last-child td{border-bottom:0}
+.table-wrap{overflow-x:auto}
+.profile{display:grid;grid-template-columns:220px 1fr;gap:25px;align-items:start}
+.photo{height:260px;background:#e8e8e8;border:1px dashed #999;display:flex;align-items:center;justify-content:center;text-align:center;color:#666}
+.badge{display:inline-block;border:1px solid #222;padding:5px 10px;border-radius:20px;font-size:12px;margin:3px 3px 3px 0}
+.notice{border-left:4px solid #111;background:#fff;padding:18px;border:1px solid var(--line)}
+footer{background:#050505;color:#fff;padding:40px 20px}
+.footer-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer a{color:#fff}
+.small{font-size:13px;color:#bbb}
+@media(max-width:700px){.profile{grid-template-columns:1fr}.photo{height:220px}.location-card{flex-direction:column;align-items:flex-start}.footer-inner{grid-template-columns:1fr}nav{display:none}}
+</style>
+
+<style>
+:root{--black:#050505;--dark:#111;--white:#fff;--soft:#f1f1f1;--line:#d7d7d7;--muted:#666}
+body{background:#fafafa;color:#111}
+.location-top{background:#000;color:#fff;border-bottom:1px solid #333}
+.location-inner{max-width:1250px;margin:auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.location-text{display:flex;gap:13px;align-items:center;flex-wrap:wrap;font-size:13px}.location-text strong{font-size:12px;letter-spacing:1.5px;border:1px solid #777;padding:5px 8px}.location-inner a{color:#fff;text-decoration:none;border:1px solid #888;padding:8px 12px;font-size:12px;font-weight:700}.location-inner a:hover{background:#fff;color:#000}
+.nav-wrap{background:#fff;border-bottom:1px solid #ddd}.nav{max-width:1250px;margin:auto;padding:15px 24px}.logo{font-size:24px;font-weight:900;line-height:.8}.logo span{font-size:24px}.logo small{display:block;font-size:9px;letter-spacing:3px;margin-top:8px;color:#777}
+.menu-btn{display:none;background:#000;color:#fff;border:0;padding:9px 12px;font-size:20px}
+.hero{background:linear-gradient(135deg,#050505,#202020);padding:110px 24px 125px;text-align:left}.hero-inner{max-width:1250px;margin:auto}.eyebrow{font-size:12px;letter-spacing:3px;color:#bbb;margin-bottom:20px}.hero h1{font-size:clamp(42px,7vw,84px);line-height:.98;max-width:950px;margin:0 0 25px}.hero h1 span{color:#bbb}.hero p{font-size:18px;max-width:700px;color:#ccc}.buttons{justify-content:flex-start;margin-top:28px}.btn{transition:.2s}.btn:hover{transform:translateY(-2px)}
+main section{max-width:1250px;padding:90px 24px}.dark-section{max-width:none!important;background:#090909;color:#fff}.dark-section>.section-title,.dark-section>.profile,.dark-section>.facility-grid{max-width:1200px;margin-left:auto;margin-right:auto}
+.section-title{margin-bottom:40px}.section-title h2{font-size:clamp(32px,4vw,52px);line-height:1.05;margin:5px 0 10px}.section-title p{font-size:17px;color:#777}.section-title.inverse p{color:#aaa}.kicker{font-size:11px;letter-spacing:3px;font-weight:800;color:#777}.inverse .kicker{color:#aaa}
+.intro-grid,.progress-grid,.placement-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:22px}.big-card,.timeline-card{background:#fff;border:1px solid var(--line);padding:30px}.big-card h3,.timeline-card h3{font-size:22px;margin-top:0}.fact-row{display:flex;justify-content:space-between;border-top:1px solid #ddd;padding:13px 0;gap:20px}.fact-row span{color:#777}
+.timeline{border-left:2px solid #111;padding:8px 0 8px 20px;margin:14px 0}.timeline b{display:block;font-size:13px}.timeline span{font-size:14px;color:#666}.text-link{font-weight:800;text-decoration:none;display:inline-block;margin-top:12px;border-bottom:2px solid #111;padding-bottom:3px}
+.profile{display:grid;grid-template-columns:300px 1fr;gap:45px;align-items:center}.portrait{height:350px;border:1px solid #444;display:flex;align-items:center;justify-content:center;text-align:center;color:#aaa;font-size:20px;letter-spacing:2px}.profile h2{font-size:48px;margin:8px 0}.profile-tag{font-size:11px;letter-spacing:3px;color:#aaa}.profile p{max-width:750px;color:#ccc;font-size:17px}.stat-line{display:flex;gap:50px;margin:28px 0}.stat-line strong{display:block;font-size:24px}.stat-line span{font-size:12px;color:#aaa}
+.department-grid,.faculty-grid,.feature-grid,.facility-grid,.reasons,.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.department-grid article,.faculty-card,.feature-grid article,.reasons>div,.contact-card{background:#fff;border:1px solid var(--line);padding:27px}.department-grid article>span,.reasons span{font-size:12px;color:#888;letter-spacing:2px}.department-grid h3{font-size:21px}.official-note{margin-top:22px;padding:17px 20px;background:#eee;border-left:4px solid #111;font-size:14px}.official-note a{font-weight:800;color:#111}
+.soft{background:#f0f0f0;max-width:none!important}.soft>.section-title,.soft>.faculty-grid,.soft>.table-wrap,.soft>.placement-grid,.soft>.official-note{max-width:1200px;margin-left:auto;margin-right:auto}
+.faculty-card{position:relative}.initial{width:48px;height:48px;border:2px solid #111;display:flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:18px}.faculty-card h3{margin:0 0 8px;font-size:19px}.faculty-card b{font-size:12px}.faculty-card p{margin:10px 0}.faculty-card span{font-size:13px;color:#666}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:25px}.metrics>div{background:#111;color:#fff;padding:25px}.metrics strong{display:block;font-size:32px}.metrics span{display:block;font-weight:800;margin:5px 0}.metrics small{color:#aaa}
+.journey{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:22px}.journey span{background:#111;color:#fff;padding:9px 12px;font-size:12px;font-weight:700}.journey i{font-style:normal}
+.table-wrap{overflow:auto}.table-wrap table{min-width:800px;box-shadow:none}.table-wrap th{background:#000}.table-wrap td{background:#fff}.placement-metrics>div:first-child{background:#000}.ring{width:140px;height:140px;border:10px solid #ddd;border-right-color:#111;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;margin:20px 0}.ring small{font-size:15px}
+.feature-grid article{min-height:180px}.icon{font-size:28px;font-weight:900;margin-bottom:12px}.feature-grid h3{font-size:20px}
+.facility-grid>div{border:1px solid #333;padding:26px;background:#111}.facility-grid b{font-size:30px}.facility-grid h3{font-size:20px;margin-bottom:5px}.facility-grid p{color:#bbb}
+.reasons>div{min-height:190px}.reasons span{font-weight:900}.reasons h3{font-size:21px}
+.contact-section{background:#f5f5f5;max-width:none!important}.contact-section>.section-title,.contact-grid{max-width:1200px;margin-left:auto;margin-right:auto}.contact-card{min-height:210px}.contact-card>b{font-size:11px;letter-spacing:2px;color:#777}.contact-card a{font-weight:800}
+footer{background:#000!important;color:#fff;padding:55px 24px 20px}.footer-main{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:35px}.footer-logo{font-size:28px;font-weight:900}.footer-main h4{margin-top:0}.footer-main a{display:block;color:#ccc;text-decoration:none;margin:8px 0;font-size:14px}.small{color:#999}.copyright{max-width:1200px;margin:45px auto 0;padding-top:18px;border-top:1px solid #333;color:#777;font-size:12px}
+@media(max-width:850px){nav{display:none}.menu-btn{display:block} .nav{display:flex;justify-content:space-between;align-items:center}.nav nav.show{display:flex;position:absolute;left:0;right:0;top:130px;background:#fff;padding:20px;flex-direction:column;border-bottom:1px solid #ddd}.location-inner{align-items:flex-start;flex-direction:column}.intro-grid,.progress-grid,.placement-grid,.profile{grid-template-columns:1fr}.department-grid,.faculty-grid,.feature-grid,.facility-grid,.reasons,.contact-grid{grid-template-columns:repeat(2,1fr)}.metrics{grid-template-columns:repeat(2,1fr)}.profile{gap:25px}.portrait{height:280px}}
+@media(max-width:550px){main section{padding:65px 16px}.hero{padding:75px 16px 90px}.location-inner,.nav{padding-left:16px;padding-right:16px}.department-grid,.faculty-grid,.feature-grid,.facility-grid,.reasons,.contact-grid,.metrics,.footer-main{grid-template-columns:1fr}.hero h1{font-size:44px}.profile h2{font-size:36px}.stat-line{gap:20px;flex-wrap:wrap}.buttons{flex-direction:column;align-items:flex-start}.btn{width:max-content}}
+</style>
+</head>
+<body>
+<header>
+  <div class="location-top">
+    <div class="location-inner">
+      <div class="location-text"><strong>📍 CAMPUS LOCATION</strong><span>Nalanda College of Engineering, Chandi – Jalalpur Road, Gokhulpur, Nalanda, Bihar – 803108</span></div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Nalanda+College+of+Engineering+Chandi+Jalalpur+Road+Gokhulpur+Nalanda+Bihar+803108" target="_blank" rel="noopener">Open Location in Google Maps ↗</a>
+    </div>
+  </div>
+  <div class="nav-wrap">
+    <div class="nav">
+      <div class="logo">NCE <span>CHANDI</span><small>Information Portal</small></div>
+      <button class="menu-btn" onclick="document.querySelector('nav').classList.toggle('show')">☰</button>
+      <nav>
+        <a href="#about">About</a><a href="#principal">Principal</a><a href="#academics">Academics</a>
+        <a href="#faculty">Faculty</a><a href="#students">Students</a><a href="#placements">Placements</a>
+        <a href="#training">T&P</a><a href="#facilities">Facilities</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">NALANDA COLLEGE OF ENGINEERING • CHANDI</div>
+    <h1>Engineering Education.<br><span>Skills. Careers. Future.</span></h1>
+    <p>A detailed local information portal covering academics, faculty, student progression, training, placements and campus facilities.</p>
+    <div class="buttons">
+      <a class="btn light" href="https://ncechandi.ac.in/" target="_blank" rel="noopener">Official NCE Website ↗</a>
+      <a class="btn outline" href="#placements">Explore Placements ↓</a>
+    </div>
+  </div>
+</section>
+
+<main>
+<section id="about">
+  <div class="section-title"><div class="kicker">01 • INSTITUTION</div><h2>About Nalanda College of Engineering</h2><p>An at-a-glance profile of the institution.</p></div>
+  <div class="intro-grid">
+    <div class="big-card">
+      <h3>🏛️ A Government Engineering Campus</h3>
+      <p>Nalanda College of Engineering (NCE), Chandi is an engineering institution located in Nalanda district, Bihar. The information presented on this local portal is organized for students, parents, visitors and recruiters.</p>
+      <div class="fact-row"><span>Established</span><strong>19 November 2008</strong></div>
+      <div class="fact-row"><span>Campus</span><strong>51.64 Acres</strong></div>
+      <div class="fact-row"><span>Environment</span><strong>Green & Wi‑Fi Campus</strong></div>
+      <div class="fact-row"><span>Approval</span><strong>AICTE Approved</strong></div>
+      <div class="fact-row"><span>Affiliation</span><strong>Bihar Engineering University, Patna</strong></div>
+    </div>
+    <div class="timeline-card">
+      <h3>Institution Snapshot</h3>
+      <div class="timeline"><b>2008</b><span>College established on 19 November.</span></div>
+      <div class="timeline"><b>Campus</b><span>Large green campus with academic and student facilities.</span></div>
+      <div class="timeline"><b>Academics</b><span>B.Tech branches along with postgraduate study opportunities.</span></div>
+      <div class="timeline"><b>Career</b><span>Training, internships and campus/off-campus recruitment support.</span></div>
+      <a class="text-link" href="https://ncechandi.ac.in/" target="_blank">Verify on Official Website ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section" id="principal">
+  <div class="section-title inverse"><div class="kicker">02 • LEADERSHIP</div><h2>Principal's Profile</h2><p>Institutional leadership and administration.</p></div>
+  <div class="profile">
+    <div class="portrait">PRINCIPAL<br><small>Official photograph can be inserted here</small></div>
+    <div>
+      <div class="profile-tag">PRINCIPAL • NCE CHANDI</div>
+      <h2>Dr. Gopal Nandan</h2>
+      <p>According to the information supplied for this local portal, Dr. Gopal Nandan is the Principal of NCE Chandi, with a Ph.D. in Engineering and more than 20 years of academic, research and administrative experience.</p>
+      <div class="stat-line"><div><strong>Ph.D.</strong><span>Engineering</span></div><div><strong>20+</strong><span>Years Experience</span></div><div><strong>Principal</strong><span>Designation</span></div></div>
+      <a class="btn light" href="https://ncechandi.ac.in/" target="_blank">Official College Source ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="academics">
+  <div class="section-title"><div class="kicker">03 • ACADEMICS</div><h2>Academic Departments</h2><p>Engineering and applied science areas represented in the supplied profile.</p></div>
+  <div class="department-grid">
+    <article><span>01</span><h3>Computer Science & Engineering</h3><p>Programming, software development, algorithms, databases and modern computing skills.</p></article>
+    <article><span>02</span><h3>Mechanical Engineering</h3><p>Design, manufacturing, thermal systems and mechanical engineering applications.</p></article>
+    <article><span>03</span><h3>Electrical Engineering</h3><p>Power systems, electrical machines, control, electronics and industrial applications.</p></article>
+    <article><span>04</span><h3>Civil Engineering</h3><p>Construction, structural engineering, surveying, infrastructure and materials.</p></article>
+    <article><span>05</span><h3>Applied Science</h3><p>Foundation subjects supporting engineering education and technical research.</p></article>
+    <article><span>06</span><h3>Aeronautical Engineering</h3><p>Aircraft, aerodynamics, propulsion and aerospace-oriented engineering concepts.</p></article>
+    <article><span>07</span><h3>AI & Machine Learning</h3><p>Artificial intelligence, machine learning, data-driven systems and emerging technologies.</p></article>
+  </div>
+  <div class="official-note">For current branch list, sanctioned intake and admission rules, check the official college source. <a href="https://ncechandi.ac.in/" target="_blank">Official Website ↗</a></div>
+</section>
+
+<section id="faculty" class="soft">
+  <div class="section-title"><div class="kicker">04 • FACULTY</div><h2>Faculty Qualification & Experience</h2><p>Faculty details supplied for this portal.</p></div>
+  <div class="faculty-grid">
+    <div class="faculty-card"><div class="initial">KP</div><h3>Dr. Kumari Priyanka Sinha</h3><b>HOD • CSE</b><p>Ph.D., M.Tech</p><span>10+ years experience</span></div>
+    <div class="faculty-card"><div class="initial">ZR</div><h3>Dr. Md. Zishanur Rahman</h3><b>HOD • Mechanical</b><p>Ph.D., M.Tech</p><span>12+ years experience</span></div>
+    <div class="faculty-card"><div class="initial">AR</div><h3>Dr. Ashish Ranjan</h3><b>HOD • Electrical</b><p>Ph.D., M.Tech</p><span>11+ years experience</span></div>
+    <div class="faculty-card"><div class="initial">SK</div><h3>Prof. Sudeep Kumar</h3><b>HOD • Civil</b><p>M.Tech, Ph.D. Pursuing</p><span>9+ years experience</span></div>
+    <div class="faculty-card"><div class="initial">AK</div><h3>Dr. Ashish Kumar</h3><b>Professor • Applied Science</b><p>Ph.D.</p><span>15+ years experience</span></div>
+    <div class="faculty-card"><div class="initial">AK</div><h3>Mr. Alok Kumar</h3><b>HOD • Aeronautical</b><p>M.Tech</p><span>8+ years experience</span></div>
+    <div class="faculty-card"><div class="initial">SW</div><h3>Dr. Sakshiwala</h3><b>AI & Machine Learning</b><p>Ph.D.</p><span>7+ years experience</span></div>
+  </div>
+  <div class="official-note">Faculty information can change. Verify names, designations, qualifications and experience from the official faculty directory before relying on it for formal use. <a href="https://ncechandi.ac.in/" target="_blank">Official Source ↗</a></div>
+</section>
+
+<section id="students">
+  <div class="section-title"><div class="kicker">05 • STUDENT DATA</div><h2>Students & Progression</h2><p>Key figures supplied for the local information portal.</p></div>
+  <div class="metrics">
+    <div><strong>1,000+</strong><span>Active Students</span><small>B.Tech + M.Tech</small></div>
+    <div><strong>~300</strong><span>Annual New Intake</span><small>Approximate figure supplied</small></div>
+    <div><strong>72.76%</strong><span>Placement Success</span><small>Eligible students placed</small></div>
+    <div><strong>20–25%</strong><span>Higher Studies</span><small>Progression estimate supplied</small></div>
+  </div>
+  <div class="progress-grid">
+    <div class="big-card"><h3>🎓 Student Journey</h3><p>Students progress from classroom learning to practical laboratory work, technical training, internships, recruitment preparation and higher studies.</p><div class="journey"><span>Admission</span><i>→</i><span>Academics</span><i>→</i><span>Training</span><i>→</i><span>Internship</span><i>→</i><span>Placement / Higher Studies</span></div></div>
+    <div class="big-card"><h3>📈 Higher Studies</h3><p>The supplied information states that around 20–25% of students progress towards higher education or competitive pathways, including GATE-linked M.Tech opportunities, MBA and overseas universities.</p><a href="https://ncechandi.ac.in/" target="_blank" class="text-link">Check official updates ↗</a></div>
+  </div>
+</section>
+
+<section id="placements" class="soft">
+  <div class="section-title"><div class="kicker">06 • CAREERS</div><h2>Placement Performance</h2><p>Placement figures and recruiter information supplied for this portal.</p></div>
+  <div class="metrics placement-metrics">
+    <div><strong>₹17–24 LPA</strong><span>Top reported range</span><small>Cisco / Off-campus top tier</small></div>
+    <div><strong>₹8.60 LPA</strong><span>TCS Digital</span><small>System / Digital Engineer</small></div>
+    <div><strong>₹7.20 LPA</strong><span>Wipro / Cognizant</span><small>Project Specialist</small></div>
+    <div><strong>₹3.20–3.50 LPA</strong><span>Average Package</span><small>Supplied range</small></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Rank</th><th>Recruiter</th><th>Highest Package</th><th>Role / Profile</th><th>Department</th></tr></thead>
+      <tbody>
+        <tr><td>#1</td><td>Cisco / Off-Campus Top Tier</td><td>₹17.00–24.00 LPA</td><td>Software Engineer</td><td>CSE / ECE</td></tr>
+        <tr><td>#2</td><td>TCS Digital</td><td>₹8.60 LPA</td><td>System / Digital Engineer</td><td>CSE / EEE</td></tr>
+        <tr><td>#3</td><td>Wipro Turbo / Cognizant GenC</td><td>₹7.20 LPA</td><td>Project Specialist</td><td>CSE / ECE</td></tr>
+        <tr><td>#4</td><td>Tata Elxsi / Maruti Suzuki</td><td>₹6.50 LPA</td><td>Embedded / Design Engineer</td><td>ME / EEE</td></tr>
+        <tr><td>#5</td><td>Infosys Power Programmer / HCL</td><td>₹5.50–5.80 LPA</td><td>Software Developer</td><td>CSE / ECE / CE</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="placement-grid">
+    <div class="big-card"><h3>💼 Placement Success</h3><div class="ring">72.76<small>%</small></div><p>Supplied placement success rate among eligible students.</p></div>
+    <div class="big-card"><h3>🏢 Recruiter Profiles</h3><p>Reported names include TCS, Wipro, Cognizant, Tata Elxsi, Maruti Suzuki, Infosys, HCL and Cisco/off-campus opportunities.</p><p class="muted">Recruiter participation and package figures can vary by year, campus/off-campus status and eligibility.</p></div>
+  </div>
+  <div class="official-note"><strong>Data note:</strong> Placement statistics should be treated as supplied figures until verified against an official placement report. <a href="https://ncechandi.ac.in/" target="_blank">Open Official Website ↗</a></div>
+</section>
+
+<section id="training">
+  <div class="section-title"><div class="kicker">07 • TRAINING & PLACEMENT</div><h2>Training & Placement Cell</h2><p>Career preparation and industry-facing activities.</p></div>
+  <div class="feature-grid">
+    <article><div class="icon">⌨</div><h3>Coding Bootcamps</h3><p>Programming-focused preparation including Python, Java and web development workshops.</p></article>
+    <article><div class="icon">◉</div><h3>Personality Development</h3><p>Communication, confidence building, aptitude and professional readiness activities.</p></article>
+    <article><div class="icon">✓</div><h3>Mock Interviews</h3><p>Interview practice and recruitment-oriented preparation for students.</p></article>
+    <article><div class="icon">↗</div><h3>Internships</h3><p>Supplied internship examples include DRDO, NTPC, BSPHCL, Railways and TCS.</p></article>
+    <article><div class="icon">▣</div><h3>Technical Workshops</h3><p>Hands-on learning, technical sessions and emerging technology exposure.</p></article>
+    <article><div class="icon">◎</div><h3>Recruitment Drives</h3><p>Company interaction, eligibility screening, tests and interview coordination.</p></article>
+  </div>
+</section>
+
+<section id="facilities" class="dark-section">
+  <div class="section-title inverse"><div class="kicker">08 • CAMPUS</div><h2>Facilities & Student Life</h2><p>Campus facilities included in the supplied profile.</p></div>
+  <div class="facility-grid">
+    <div><b>💻</b><h3>Computer Centre</h3><p>100+ high-speed LAN-connected systems and programming labs.</p></div>
+    <div><b>📚</b><h3>Central Library</h3><p>E-journals, IEEE subscription and dedicated reading spaces.</p></div>
+    <div><b>🏠</b><h3>Hostels</h3><p>Separate boys' and girls' hostels with mess and Wi‑Fi facilities.</p></div>
+    <div><b>🏟️</b><h3>Sports</h3><p>Cricket field, volleyball court, basketball court and outdoor activities.</p></div>
+    <div><b>🏋️</b><h3>Fitness Gym</h3><p>Fitness and physical activity support for students.</p></div>
+    <div><b>🏥</b><h3>Medical Support</h3><p>On-campus health clinic and ambulance support as supplied.</p></div>
+    <div><b>🛡️</b><h3>Security</h3><p>24×7 campus security arrangements as supplied.</p></div>
+    <div><b>🎉</b><h3>Clubs & Fests</h3><p>ATISA technical fest and PRARAMBHA annual fest.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title"><div class="kicker">09 • CAMPUS EXPERIENCE</div><h2>Why Students Look at NCE Chandi</h2><p>Highlights organized in one place.</p></div>
+  <div class="reasons">
+    <div><span>01</span><h3>Government Engineering Education</h3><p>Focused technical education environment with engineering departments.</p></div>
+    <div><span>02</span><h3>Large Green Campus</h3><p>51.64-acre campus profile with green and Wi‑Fi campus facilities.</p></div>
+    <div><span>03</span><h3>Career Preparation</h3><p>Training, coding, aptitude, mock interviews and internship-oriented activities.</p></div>
+    <div><span>04</span><h3>Student Activities</h3><p>Sports, clubs, technical events and annual cultural activities.</p></div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="section-title"><div class="kicker">10 • OFFICIAL LINKS</div><h2>Location, Contact & Verification</h2><p>Use the official source for the latest institutional information.</p></div>
+  <div class="contact-grid">
+    <div class="contact-card"><b>📍 LOCATION</b><h3>Chandi, Nalanda, Bihar</h3><p>Jalalpur Road, Gokhulpur, Nalanda, Bihar – 803108</p><a href="https://www.google.com/maps/search/?api=1&query=Nalanda+College+of+Engineering+Chandi+Jalalpur+Road+Gokhulpur+Nalanda+Bihar+803108" target="_blank">Google Maps ↗</a></div>
+    <div class="contact-card"><b>🌐 OFFICIAL WEBSITE</b><h3>ncechandi.ac.in</h3><p>College notices, admissions, academics, faculty and official updates.</p><a href="https://ncechandi.ac.in/" target="_blank">Visit Official Website ↗</a></div>
+    <div class="contact-card"><b>📢 OFFICIAL INFORMATION</b><h3>Verify Before Use</h3><p>For formal applications, admission decisions, current packages and contact numbers, use official NCE sources.</p><a href="https://ncechandi.ac.in/" target="_blank">Verify Information ↗</a></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-main">
+    <div><div class="footer-logo">NCE CHANDI</div><p>Nalanda College of Engineering, Chandi — local information portal.</p><p class="small">This is an unofficial local information website. It is not the official website of Nalanda College of Engineering.</p></div>
+    <div><h4>Explore</h4><a href="#about">About</a><a href="#academics">Academics</a><a href="#faculty">Faculty</a><a href="#placements">Placements</a></div>
+    <div><h4>Campus</h4><a href="#training">T&P Cell</a><a href="#facilities">Facilities</a><a href="#students">Students</a><a href="#contact">Location & Links</a></div>
+    <div><h4>Official</h4><a href="https://ncechandi.ac.in/" target="_blank">NCE Official Website ↗</a><a href="https://www.google.com/maps/search/?api=1&query=Nalanda+College+of+Engineering+Chandi+Bihar" target="_blank">Google Maps ↗</a></div>
+  </div>
+  <div class="copyright">© 2026 NCE Chandi Local Information Portal • Designed in Black & White</div>
+</footer>
+<script>
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.querySelector('nav').classList.remove('show')));
+</script>
+</body>
+</html>
